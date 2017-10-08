@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
 import firebaseApp from './firebase'
 import firebaseui from 'firebaseui'
 import firebase from 'firebase'
 import Login from './Login'
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Dashboard from './Dashboard'
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,8 +42,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Login />
+      <div>
+        <div className="App">
+          <Login />
+        </div>
+        <Router>
+          <Route path="/dashboard" component={Dashboard}/>
+        </Router>
       </div>
     );
   }
